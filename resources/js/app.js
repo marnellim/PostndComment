@@ -40,12 +40,16 @@ $(document).ready(function() {
 
         description.find('.summary-content').text(shortDescription);
         description.find('.read-less-link').hide();
+
     });
+
+    
 
  
-    // filter the post of the logged in user
-    document.getElementById('my-posts').addEventListener('change', function() {
-        document.getElementById('filter-submit').click(); 
-    });
+    document.addEventListener('DOMContentLoaded', function() {
+        var myPostsCheckbox = document.getElementById('my-posts');
+        const categorySelect = document.getElementById('category');
 
+
+});
 });

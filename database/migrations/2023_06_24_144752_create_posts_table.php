@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('title');
             $table->text('description');
-            $table->string('category');
+            $table->enum('category', ['All', 'Current Events', 'How To Guides', 'Product Reviews'])->default('All');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

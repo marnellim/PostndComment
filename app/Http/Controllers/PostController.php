@@ -14,22 +14,27 @@ class PostController extends Controller
 {
     public function index(Request $request): View
     {
-        $category = $request->input('category');
+        
+        $selectedCategory = $request->input('category');
+        $filter = $request->input('filter');
         $myPosts = $request->has('my_posts');
     
-        $posts = Post::query();
+        $postsQuery = Post::query();
     
-        if ($category) {
-            $posts->where('category', $category);
+        if ($selectedCategory) {
+            $postsQuery->where('category', $selectedCategory);
         }
     
-        if ($myPosts) {
-            $posts->where('user_id', Auth::id());
+        if ($myPosts && $filter === 'my_posts') {
+            $postsQuery->where('user_id', Auth::id());
         }
     
-        $posts = $posts->latest()->paginate(10);
+   
+        $posts = $postsQuery->get();
     
-        return view('posts.index', compact('posts', 'category', 'myPosts'));
+        $posts = $postsQuery->latest()->paginate(10);
+    
+        return view('posts.index', compact('posts', 'myPosts', 'selectedCategory'));
     }
 
     public function create()
