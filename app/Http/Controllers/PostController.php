@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\UserPostMap;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
@@ -49,12 +50,24 @@ class PostController extends Controller
             'description' => 'required|string|max:1500',
             'category' => 'required',
         ]);
-
-        $validated['name'] = Auth::user()->name;
-        $validated['user_id'] = Auth::id();
-
-        Post::create($validated);
-
+    
+        $user_id = auth()->user()->id;
+    
+        // Create a new post
+        $post = new Post();
+        $post->name = Auth::user()->name;
+        $post->title = $validated['title'];
+        $post->description = $validated['description'];
+        $post->category = $validated['category'];
+        $post->user_id = $user_id;
+        $post->save();
+    
+        // Create a new user-post mapping
+        $user_post_map = new UserPostMap();
+        $user_post_map->user_id = $user_id;
+        $user_post_map->post_id = $post->id;
+        $user_post_map->save();
+    
         return redirect()->route('posts.index')->with('success', 'Post created successfully.');
     }
     public function edit(Post $post): View
