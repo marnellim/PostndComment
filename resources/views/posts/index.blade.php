@@ -16,21 +16,17 @@
                                     </div>
                                     <div class="flex-1">
                                         <div class="flex justify-between items-center">
-                                            <span class="text-gray-800">{{ $post->user->name }}</span>
-                                            <small class="ml-2 text-sm text-gray-600">{{ $post->created_at->format('j M Y, g:i a') }}</small>
+                                            <x-post-user-name :post="$post" />
+                                            <x-post-timestamp :post="$post" />
                                         </div>
-                                        <p class="mt-1 text-sm text-gray-900 " style="font-weight: bold;">{{ $post->title }}</p>
+                                        <x-post-title :post="$post" />
                                         <div class="description" data-full-description="{{ $post->description }}" data-short-description="{{ Str::limit($post->description, $limit = 100, $end = '...') }}">
                                             <p class="mt-2 text-sm text-gray-900">
-                                                <span class="summary-content pre-wrap" style="white-space: pre-wrap;">{{ Str::limit(e($post->description), $limit = 100, $end = '...') }}</span>
-                                                <span class="full-description" style="display: none;">
-                                                    {!! nl2br(e($post->description)) !!}
-                                                </span>
-                                                                                    
-                                                <a href="#" class="read-more-link" style="font-style: italic;">{{ __('Read more') }}</a>
-                                                <a href="#" class="read-less-link" style="font-style: italic; display: none;">{{ __('Read less') }}</a>
+                                                <x-post-description :post="$post" />                                                         
+                                                <x-read-more />
+                                                <x-read-less />
                                                 <br><br>
-                                                <x-comment-edit-delete-container :post="$post"/>
+                                                <x-comment-edit-delete-container :post="$post" />
                                             </p>
                                         </div>
                                     </div>
