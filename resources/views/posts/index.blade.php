@@ -30,26 +30,7 @@
                                                 <a href="#" class="read-more-link" style="font-style: italic;">{{ __('Read more') }}</a>
                                                 <a href="#" class="read-less-link" style="font-style: italic; display: none;">{{ __('Read less') }}</a>
                                                 <br><br>
-                                                <div class="comment-edit-delete-container">
-                                                    <form action="{{ route('comments.create', ['post_id' => $post->id]) }}" method="GET" target="_blank">
-                                                        @csrf
-                                                        <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                                        <x-comment-button />
-                                                    </form>
-                                                    @auth
-                                                    @if ($post->user_id == auth()->user()->id)
-                                                    <form method="GET" action="{{ route('posts.edit', $post) }}" class="inline">
-                                                        @csrf
-                                                        <x-edit-button />
-                                                    </form>
-                                                    <form method="POST" action="{{ route('posts.destroy', $post)}}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <x-delete-button />
-                                                    </form>
-                                                    @endif
-                                                    @endauth
-                                                </div>
+                                                <x-comment-edit-delete-container :post="$post"/>
                                             </p>
                                         </div>
                                     </div>
