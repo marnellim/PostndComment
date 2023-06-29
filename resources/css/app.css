@@ -23,7 +23,6 @@
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
         display: flex;
         -webkit-box-orient: vertical;
-        /* -webkit-box-direction: normal; */
         -ms-flex-direction: column;
         flex-direction: column;
         position: relative;
@@ -42,24 +41,21 @@
         text-transform: uppercase;
     }
     
-    .like-comment-container {
+    .comment-edit-delete-container {
       display: flex;
       align-items: center;
     }
     
-    .like-link {
-      margin-right: 20px; 
-    }
     .comment-link {
       margin-right: 10px; 
     }
 
-    .like-comment-container a {
+    .comment-edit-delete-container a {
       display: flex;
       align-items: center;
     }
     
-    .like-comment-container a svg {
+    .comment-edit-delete-container a svg {
       margin-right: 5px;
     }
     
