@@ -1,28 +1,12 @@
 <x-app-layout>
-
     <div class="py-12">
-        <x-card-deck>
-        </x-card-deck>
-
+        <x-card-deck />
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-justify">
                     <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
                         <form method="GET" action="{{ route('posts.index') }}">
-                            <div class="flex items-center justify-end mb-4">
-                                {{-- category filter--}}
-                                <label for="category" class="mr-2">Filter by category:</label>
-                                <select id="category" name="category" class="border border-gray-300 rounded-md py-1 px-2">
-                                    <option value="">All</option>
-                                    <option value="Current Events" {{ $selectedCategory === 'Current Events' ? 'selected' : '' }}>Current Events</option>
-                                    <option value="How To Guides" {{ $selectedCategory === 'How To Guides' ? 'selected' : '' }}>How-To Guides</option>
-                                    <option value="Product Reviews" {{ $selectedCategory === 'Product Reviews' ? 'selected' : '' }}>Product Reviews</option>
-                                </select>
-                                <x-primary-button type="submit" name="filter" value="category" class="ml-5" >Search</x-primary-button>
-                                {{-- view all my post filter--}}
-                                <label for="my-posts" class="ml-4">View all my posts:</label>
-                                <input type="checkbox" id="my-posts" name="my_posts" value="1" onclick="this.form.submit()" {{ request()->has('my_posts') ? 'checked' : '' }}>
-                            </div>
+                            <x-filter-post-category :selected-category="$selectedCategory" />
                         </form>
                         @foreach ($posts as $post)
                             @if (!$myPosts || $post->user->id === Auth::id())
@@ -50,18 +34,18 @@
                                                     <form action="{{ route('comments.create', ['post_id' => $post->id]) }}" method="GET" target="_blank">
                                                         @csrf
                                                         <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                                        <x-comment-button></x-comment-button>
+                                                        <x-comment-button />
                                                     </form>
                                                     @auth
                                                     @if ($post->user_id == auth()->user()->id)
                                                     <form method="GET" action="{{ route('posts.edit', $post) }}" class="inline">
                                                         @csrf
-                                                        <x-edit-button></x-edit-button>
+                                                        <x-edit-button />
                                                     </form>
                                                     <form method="POST" action="{{ route('posts.destroy', $post)}}">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <x-delete-button></x-delete-button>
+                                                        <x-delete-button />
                                                     </form>
                                                     @endif
                                                     @endauth
@@ -72,7 +56,6 @@
                                 </div>
                             @endif
                         @endforeach
-
                     </div>
                 </div>
             </div>
