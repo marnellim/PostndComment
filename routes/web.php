@@ -3,8 +3,6 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\UserPostMapController;
-use App\Models\UserPostMap;
 use Illuminate\Support\Facades\Route;
 
 
@@ -27,10 +25,6 @@ route::resource('/posts', PostController::class)
     ->middleware(['auth', 'verified']);
 
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-
-route::resource('/user_post_map', UserPostMapController::class)
-    ->only(['store'])
-    ->middleware(['auth', 'verified']);
 
 
 route::resource('/comments', CommentController::class)
