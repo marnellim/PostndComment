@@ -24,11 +24,7 @@ route::resource('/posts', PostController::class)
     ->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
-    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-
-
-route::resource('/comments', CommentController::class)
-    ->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
-    ->middleware(['auth', 'verified']);
+Route::get('/comments/create/{post_id}', [CommentController::class, 'create'])->name('comments.create');
+Route::post('/comments/store/{comment_id}', [CommentController::class, 'store'])->name('comment.store');
 
 require __DIR__.'/auth.php';
