@@ -47,7 +47,7 @@
                                                 <a href="#" class="read-less-link" style="font-style: italic; display: none;">{{ __('Read less') }}</a>
                                                 <br><br>
                                                 <div class="comment-edit-delete-container">
-                                                    <form action="{{ route('comments.create', ['post_id' => $post->id]) }}" method="GET" target="_blank">
+                                                    <form action="{{ route('comments.create', ['post_id' => $post->id]) }}" method="GET">
                                                         @csrf
                                                         <input type="hidden" name="post_id" value="{{ $post->id }}">
                                                         <x-comment-button />

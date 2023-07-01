@@ -20,11 +20,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-route::resource('/posts', PostController::class)
+Route::resource('/posts', PostController::class)
+    ->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
+    ->middleware(['auth', 'verified']);
+
+Route::resource('/comments', CommentController::class)
     ->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
 Route::get('/comments/create/{post_id}', [CommentController::class, 'create'])->name('comments.create');
-Route::post('/comments/store/{comment_id}', [CommentController::class, 'store'])->name('comment.store');
+Route::post('/comments/store/{post_id}', [CommentController::class, 'store'])->name('comments.store');
+
+    
+
+
 
 require __DIR__.'/auth.php';

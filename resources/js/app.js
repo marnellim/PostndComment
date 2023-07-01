@@ -43,10 +43,9 @@ $(document).ready(function() {
 
     });
 
-    // // document.addEventListener('DOMContentLoaded', function() {
-    //     e.preventDefault();
-    //     var myPostsCheckbox = document.getElementById('my-posts');
-    //     const categorySelect = document.getElementById('category');
-    // });
-
+    function submitCommentForm() {
+        document.getElementById('commentForm').submit();
+        document.getElementById('commentInput').value = '';
+        document.getElementById('commentInput').setAttribute('disabled', 'disabled');
+    }
 });
