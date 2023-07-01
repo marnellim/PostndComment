@@ -3,9 +3,9 @@
         <div class="p-6 text-center">
             <div class="card-deck">
                 <div class="card">
-                    <img src="{{ asset('images/currentevents.png') }}" class="card-img-top" alt="Current Events"/>
+                    <img src="{{ asset('images/howtoguides.png') }}" class="card-img-top" alt="Current Events"/>
                     <div class="card-body">
-                        <h5 class="category">Current Events</h5>
+                        <h5 class="category">How to Guides</h5>
                         <x-primary-button class="mt-4">{{ __('View Post/Comments') }}</x-primary-button> 
                     </div>
                 </div>

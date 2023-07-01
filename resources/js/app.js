@@ -43,9 +43,10 @@ $(document).ready(function() {
 
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var myPostsCheckbox = document.getElementById('my-posts');
-        const categorySelect = document.getElementById('category');
-    });
+    // // document.addEventListener('DOMContentLoaded', function() {
+    //     e.preventDefault();
+    //     var myPostsCheckbox = document.getElementById('my-posts');
+    //     const categorySelect = document.getElementById('category');
+    // });
 
 });

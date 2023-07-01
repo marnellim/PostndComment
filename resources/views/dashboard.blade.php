@@ -7,20 +7,18 @@
                        <h1 class="text-5xl"> {{ __("Hi") }}, <span class="text-gray-800">{{ ucwords(auth()->user()->name) }}</span></h1>
                     @endauth
                     <div class="flex justify-center items-center custom-height">
-                        <img src="{{ asset('images/github.jpg') }}" alt="GitHub Logo" width="200" height="200">
+                        <img src="{{ asset('images/github.jpg') }}" alt="GitHub Logo" width="150" height="200">
                     </div>                    
                     <h1 class="text-5xl"> {{ __("What would you like to do?")}}</h1>
                     
                 </div>
                 <div class="p-6 text-center">
-                    <a href="{{ route('posts.create') }}">
-                        <x-primary-button> {{ __('Create a Post') }}</x-primary-button>
-                    </a>
+                    <x-create-post />
                     <span class="text-2xl mx-2">{{ __('OR') }}</span> 
                     <a href="{{ route('posts.index') }}">
                         <x-primary-button>{{ __('Leave a Comment') }}</x-primary-button>
                     </a>
-                  </div>                       
+                </div>                       
             </div>
         </div>
     </div>

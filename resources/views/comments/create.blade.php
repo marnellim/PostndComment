@@ -1,8 +1,14 @@
 <x-app-layout>
 
     <div class="py-12">
-        <x-currentevents>
-        </x-currentevents>
+
+        @if ($post->category === 'Current Events')
+            <x-currentevents />
+            @elseif ($post->category === 'Product Reviews')
+            <x-productreviews />
+            @elseif ($post->category === "How To Guides")
+            <x-howtoguides />
+        @endif
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
