@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 { 
-    public function index(Request $request, $post_id)
+    public function index(Request $request)
     {
-        $post = post::find($post_id);
-
-        return view('comments.index', compact('post'));
+        $selectedCategory = $request->query('category');
+        $posts = Post::where('category', $selectedCategory)->get();
+        return view('comments.index', compact('posts', 'selectedCategory'));
     }
+    
     
     public function create(Request $request)
     {

@@ -51,7 +51,8 @@
                                                         @csrf
                                                         <input type="hidden" name="post_id" value="{{ $post->id }}">
                                                         <x-comment-button />
-                                                    </form>                                                    @auth
+                                                    </form>                                                    
+                                                    @auth
                                                     @if ($post->user_id == auth()->user()->id)
                                                     <form method="GET" action="{{ route('posts.edit', $post) }}" class="inline">
                                                         @csrf

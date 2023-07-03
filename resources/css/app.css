@@ -36,6 +36,11 @@
         color: #5d5e5e;  
     }
 
+    .card-img-top {
+      height: auto;
+      width: auto;
+    }
+
 .grid {
       display: grid;
       grid-template-columns: repeat(var(--bs-columns), 1fr);
