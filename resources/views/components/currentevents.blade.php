@@ -11,7 +11,9 @@
                         <div class="mt-3">
                             <form method="GET" action="{{ route('comments.index') }}">
                                 <input type="hidden" name="category" value="Current Events">
-                            <x-primary-button>{{ __('View Post/Comments') }}</x-primary-button>
+                                @if(\Route::currentRouteName() !== 'comments.index')
+                                    <x-primary-button>{{ __('View Post/Comments') }}</x-primary-button>
+                                @endif                            
                             </form>
                         </div>
                     </div>
