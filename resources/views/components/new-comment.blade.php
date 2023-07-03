@@ -17,13 +17,10 @@
                         class="block border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
                     ></textarea>
                     <div class="flex justify-end mt-4">
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Post Comment
-                        </button>
+                        <x-primary-button type="submit">{{ __("Post Comment") }}</x-primary-button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-

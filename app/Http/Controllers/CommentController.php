@@ -39,12 +39,13 @@ class CommentController extends Controller
 
         $comment = new Comment();
         $comment->user_id = $validatedData['user_id'];
-        $comment->post_id = ['post_id'];
+        $comment->post_id = $post_id;
         $comment->comment = $validatedData['comment'];
 
         $comment->save();
 
-        return redirect()->back()->with('success', 'Comment submitted successfully.');
+        return view('comments.index', compact('post'));
+
     }
 
     public function show($post_id)

@@ -92,3 +92,10 @@
       margin-right: 5px;
     }
 
+    [type="hidden"] {
+      display: none;
+  }
+
+  .red-link {
+    color: red;
+}

@@ -43,9 +43,9 @@ $(document).ready(function() {
 
     });
 
-    function submitCommentForm() {
-        document.getElementById('commentForm').submit();
-        document.getElementById('commentInput').value = '';
-        document.getElementById('commentInput').setAttribute('disabled', 'disabled');
-    }
+    document.getElementById('cancelLink').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        this.style.color = 'red'; 
+    });
+   
 });

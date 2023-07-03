@@ -18,7 +18,7 @@ class PostController extends Controller
         
         $selectedCategory = $request->input('category');
         $filter = $request->input('filter');
-        $myPosts = $request->has('my_posts');
+        $myPosts = $request->has('my_posts') && $filter === 'my_posts';
     
         $postsQuery = Post::query();
     
@@ -26,10 +26,13 @@ class PostController extends Controller
             $postsQuery->where('category', $selectedCategory);
         }
     
-        if ($myPosts && $filter === 'my_posts') {
+        // if ($myPosts && $filter === 'my_posts') {
+        //     $postsQuery->where('user_id', Auth::id());
+        // }
+    
+        if ($myPosts) {
             $postsQuery->where('user_id', Auth::id());
         }
-    
    
         $posts = $postsQuery->get();
     

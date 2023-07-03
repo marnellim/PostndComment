@@ -7,7 +7,7 @@
         <div class="p-6 text-center">
             <div class="card-deck">
                 <div class="card">
-                    <img src="{{ asset('images/howtoguides.png') }}" class="card-img-top" alt="Product Reviews"/>
+                    <img src="{{ asset('images/productreviews.png') }}" class="card-img-top" alt="Product Reviews"/>
                     <div class="card-body">
                         <h5 class="category">Product Reviews</h5>
                         <div class="mt-3">
