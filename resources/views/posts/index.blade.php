@@ -3,6 +3,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-justify">
+                    <div class=" bg-white shadow-sm rounded-lg divide-y">
+                        <img src="{{ asset('images/navheader.png') }}" class="card-img-top"  alt="Product Reviews" style="height: 250px; width: 100%;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-justify">
                     <div class="mt-4 bg-white shadow-sm rounded-lg divide-y">
                             <div class="mb-4" style="display: flex; justify-content: space-between; align-items: center;">
                                 <div class="grid-form">
