@@ -4,7 +4,7 @@
             <div class="flex-1">
                 <form action="{{ route('comments.store', ['post_id' => $post->id]) }}" method="POST">
                     @csrf
-                    <input type="hidden" name="user_id" value="{{ $user_id ?? null }}" />
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                     <input type="hidden" name="post_id" value="{{ $post->id }}" />
 
                     <label>Add a New Comment:</label>

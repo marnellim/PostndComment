@@ -31,7 +31,7 @@ Route::resource('/comments', CommentController::class)
 Route::get('/comments/create/{post_id}', [CommentController::class, 'create'])->name('comments.create');
 Route::post('/comments/store/{post_id}', [CommentController::class, 'store'])->name('comments.store');
 Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
-Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+
 
     
 
